@@ -66,6 +66,12 @@ activities = {
         "participants": ["ethan@mergington.edu", "charlotte@mergington.edu"]
     },
     # Intellectual activities
+    "Blockchain Club": {
+        "description": "Explore blockchain technology, cryptocurrencies, and smart contracts",
+        "schedule": "Tuesdays, 5:00 PM - 6:00 PM",
+        "max_participants": 15,
+        "participants": ["grace@mergington.edu", "leo@mergington.edu"]
+    },
     "Math Club": {
         "description": "Solve challenging math problems and prepare for competitions",
         "schedule": "Fridays, 2:00 PM - 3:30 PM",
