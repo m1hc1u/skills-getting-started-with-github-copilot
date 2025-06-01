@@ -20,11 +20,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
+        // Participants section (styled)
+        let participantsSection = "";
+        if (details.participants.length > 0) {
+          participantsSection = `
+            <div>
+              <strong>Participants:</strong>
+              <ul style="list-style: none; padding-left: 0;">
+                ${details.participants.map(p => `
+                  <li>
+                    <div class="participant">
+                      <span class="participant-avatar" style="background: #fff;">
+                        <img src="https://api.dicebear.com/7.x/identicon/svg?seed=${encodeURIComponent(p)}" alt="avatar" class="participant-avatar" />
+                      </span>
+                      <span class="participant-name">${p.split("@")[0]}</span>
+                      <span class="participant-role">Student</span>
+                    </div>
+                  </li>
+                `).join("")}
+              </ul>
+            </div>
+          `;
+        } else {
+          participantsSection = `
+            <div>
+              <strong>Participants:</strong>
+              <ul style="list-style: none; padding-left: 0;">
+                <li>
+                  <div class="participant">
+                    <span class="participant-name"><em>No one yet! Be the trendsetter this club deserves 🦸‍♂️</em></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          `;
+        }
+
         activityCard.innerHTML = `
           <h4>${name}</h4>
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          ${participantsSection}
         `;
 
         activitiesList.appendChild(activityCard);
